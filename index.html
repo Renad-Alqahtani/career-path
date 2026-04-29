@@ -4,54 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CareerPath - AI-Powered Career Guidance for Students</title>
-
-    <meta name="description" content="Get personalized career recommendations based on your skills, academic background, and market trends." />
+    
+    <meta name="description" content="Get personalized career recommendations based on your skills, academic background, and market trends. Connect with mentors and advisors to guide your journey." />
     <meta name="author" content="CareerPath" />
-  </head>
+    <link rel="canonical" href="https://careerpath.app" />
 
+    <!-- Open Graph -->
+    <meta property="og:title" content="CareerPath - AI-Powered Career Guidance for Students" />
+    <meta property="og:description" content="Get personalized career recommendations based on your skills, academic background, and market trends." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CareerPath - AI-Powered Career Guidance" />
+    <meta name="twitter:description" content="Get personalized career recommendations based on your skills and market trends." />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  </head>
+  
   <body>
-    <!-- React App -->
     <div id="root"></div>
 
     <!-- AI Bot Iframe -->
     <iframe
       id="career-bot-iframe"
       src="https://bot-to-answer.lovable.app/embed"
-      style="
-        position:fixed;
-        bottom:20px;
-        right:20px;
-        width:80px;
-        height:80px;
-        border:none;
-        background:transparent;
-        z-index:999999;
-        pointer-events:auto;
-      ">
+      style="position:fixed; bottom:0; right:0; width:420px; height:100vh; max-height:700px; border:none; background:transparent; z-index:999999;">
     </iframe>
 
-    <script>
-      const iframe = document.getElementById("career-bot-iframe");
-
-      window.addEventListener("message", (event) => {
-        if (event.origin !== "https://bot-to-answer.lovable.app") return;
-        if (!iframe) return;
-
-        if (event.data?.type === "career-bot-resize") {
-          if (event.data.open) {
-            iframe.style.width = "420px";
-            iframe.style.height = "700px";
-            iframe.style.pointerEvents = "auto";
-          } else {
-            iframe.style.width = "80px";
-            iframe.style.height = "80px";
-            iframe.style.pointerEvents = "auto";
-          }
-        }
-      });
-    </script>
-
-    <!-- React Entry -->
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
