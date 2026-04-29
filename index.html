@@ -23,15 +23,39 @@
   </head>
   
   <body>
-    <div id="root"></div>
+<!-- AI Bot Iframe -->
+<iframe
+  id="career-bot-iframe"
+  src="https://bot-to-answer.lovable.app/embed"
+  style="
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:80px;
+    height:80px;
+    border:none;
+    background:transparent;
+    z-index:999999;
+  ">
+</iframe>
 
-    <!-- AI Bot Iframe -->
-    <iframe
-      id="career-bot-iframe"
-      src="https://bot-to-answer.lovable.app/embed"
-      style="position:fixed; bottom:0; right:0; width:420px; height:100vh; max-height:700px; border:none; background:transparent; z-index:999999;">
-    </iframe>
+<script>
+  window.addEventListener("message", (event) => {
+    if (event.origin !== "https://bot-to-answer.lovable.app") return;
 
-    <script type="module" src="/src/main.tsx"></script>
+    const iframe = document.getElementById("career-bot-iframe");
+    if (!iframe) return;
+
+    if (event.data?.type === "career-bot-resize") {
+      if (event.data.open) {
+        iframe.style.width = "420px";
+        iframe.style.height = "700px";
+      } else {
+        iframe.style.width = "80px";
+        iframe.style.height = "80px";
+      }
+    }
+  });
+  </script>
   </body>
 </html>
