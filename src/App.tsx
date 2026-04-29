@@ -26,8 +26,8 @@ import MentorDashboard from './pages/mentor/MentorDashboard'
 import MentorProfessionalProfile from './pages/mentor/MentorProfessionalProfile'
 
 import ThemeToggle from './components/ThemeToggle'
-import { CareerChatWidget } from './components/CareerChatWidget'
 import AdvisorStudentReports from './pages/advisor/AdvisorStudentReports'
+
 function getDashboardPath(role?: string) {
   switch (role) {
     case 'student':
@@ -241,8 +241,6 @@ export default function App() {
 
           <Route path="*" element={<NotFound />} />
         </Routes>
-
-        <CareerChatWidget />
       </BrowserRouter>
     </AuthProvider>
   )
