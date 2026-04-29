@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <!-- React App -->
     <div id="root"></div>
 
     <!-- AI Bot Iframe -->
@@ -25,28 +26,32 @@
         border:none;
         background:transparent;
         z-index:999999;
+        pointer-events:auto;
       ">
     </iframe>
 
     <script>
+      const iframe = document.getElementById("career-bot-iframe");
+
       window.addEventListener("message", (event) => {
         if (event.origin !== "https://bot-to-answer.lovable.app") return;
-
-        const iframe = document.getElementById("career-bot-iframe");
         if (!iframe) return;
 
         if (event.data?.type === "career-bot-resize") {
           if (event.data.open) {
             iframe.style.width = "420px";
             iframe.style.height = "700px";
+            iframe.style.pointerEvents = "auto";
           } else {
             iframe.style.width = "80px";
             iframe.style.height = "80px";
+            iframe.style.pointerEvents = "auto";
           }
         }
       });
     </script>
 
+    <!-- React Entry -->
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
